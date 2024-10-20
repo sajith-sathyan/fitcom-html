@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness and Health App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: "Roboto", sans-serif; /* Use Roboto font */
+        margin: 0;
+      }
+      .navbar {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+      /* ... rest of your existing CSS ... */
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#workout">Workouts</a></li>
+          <li><a href="#calories">Progress</a></li>
+          <li><a href="#nutrition">Nutrition</a></li>
+          <li><a href="#sync">Sync Devices</a></li>
+          <li><a href="#classes">Virtual Classes</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#posture">Posture</a></li>
+        </ul>
+      </nav>
+      
+
+    <div class="container">
+      <div class="calories">
+        <h2>Calories Tracker</h2>
+        <div class="calories-container">
+          <div class="calories-chart">
+            <svg class="circle-chart" viewBox="0 0 36 36">
+              <path
+                class="circle-chart-bg"
+                d="M18 2.0845a15.9155 15.9155 0 1 0 0 31.831a15.9155 15.9155 0 0 0 0-31.831"
+              />
+              <path
+                class="circle-chart-fill"
+                stroke-dasharray="80 100"
+                d="M18 2.0845a15.9155 15.9155 0 1 0 0 31.831a15.9155 15.9155 0 0 0 0-31.831"
+              />
+            </svg>
+          </div>
+          <div>
+            <p><strong>Goal:</strong> 2600</p>
+            <p><strong>Food:</strong> 0</p>
+            <p><strong>Exercise:</strong> 0</p>
+            <p><strong>Calories Remaining:</strong> 2600</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="speed-tracker">
+        <h2>Speed Tracker</h2>
+        <div class="speed-info">
+          <p><strong>Current Speed:</strong> 5 km/h</p>
+          <p><strong>Average Speed:</strong> 4.5 km/h</p>
+          <p><strong>Top Speed:</strong> 8 km/h</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tracker-container">
+      <div class="profile">
+        <h2>User Profile</h2>
+        <div class="profile-info">
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Age:</strong> 25</p>
+          <p><strong>Height:</strong> 175 cm</p>
+          <p><strong>Weight:</strong> 70 kg</p>
+        </div>
+      </div>
+
+      <div class="workout">
+        <h2>Jumping Jacks</h2>
+
+        <lottie-player
+          src="https://assets9.lottiefiles.com/packages/lf20_5ngs2ksb.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px"
+          loop
+          autoplay
+        >
+        </lottie-player>
+      </div>
+    </div>
+
+    <script>
+      const goalCalories = 2600;
+      const foodCalories = 1500; // Update this value based on user input
+      const exerciseCalories = 0; // Update this value based on user input
+      const remainingCalories = goalCalories - foodCalories + exerciseCalories;
+
+      const percentage = (remainingCalories / goalCalories) * 100;
+      document
+        .querySelector(".circle-chart-fill")
+        .setAttribute("stroke-dasharray", `${percentage} 100`);
+    </script>
+  </body>
+</html>

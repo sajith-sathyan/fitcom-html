@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight Loss Goals</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #eae8e8;
+      }
+
+      .container {
+        text-align: center;
+        width: 500px;
+        max-width: 600px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #555;
+        font-weight: bold;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align radio buttons */
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      .btn {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid black; /* Added black border around each button */
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      .info {
+        font-size: 0.9em;
+        color: #666;
+        margin: 10px 0;
+        text-align: center;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weight Loss Goals</h1>
+      <form>
+        <div class="form-group">
+          <label>How much weight do you want to lose per week?</label>
+          <br>
+          <div class="radio-group">
+            <button class="btn" > 0.25 kg (0.5 lbs)</button>
+            <br>
+            <button class="btn" >  0.5 kg (1 lb)</button>
+          </div>
+        </div>
+        <br>
+        <p class="info">
+          Please select your desired weekly weight loss to help us tailor your
+          fitness plan.
+        </p>
+        <button class="navigation-buttons" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

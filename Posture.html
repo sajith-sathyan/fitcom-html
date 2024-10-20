@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posture Correction</title>
+    <link rel="stylesheet" href="Posture.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Posture Correction with AI</h1>
+            <p>Improve your posture with AI guidance. Upload a photo and get real-time feedback.</p>
+        </header>
+
+        <!-- Posture Correction Section -->
+        <section class="posture-correction">
+            <h2>Upload Your Posture Image</h2>
+            <form id="posture-form">
+                <label for="posture-image">Choose an image:</label>
+                <input type="file" id="posture-image" accept="image/*">
+                <button type="button" class="upload-btn" onclick="correctPosture()">Correct Posture with AI</button>
+            </form>
+            <div id="result">
+                <!-- AI correction results will be displayed here -->
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <h2>Posture Correction Video Guide</h2>
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </div>
+
+    <script>
+        function correctPosture() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>AI Feedback:</h3>
+                <p>Your posture has been analyzed. Keep your back straight and align your shoulders.</p>
+                <img src="https://via.placeholder.com/400" alt="AI corrected posture" />
+            `;
+        }
+    </script>
+</body>
+</html>

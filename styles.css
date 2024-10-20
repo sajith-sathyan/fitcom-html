@@ -1,0 +1,226 @@
+body {
+    background-color: #edf0f3;
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+}
+h2 {
+    font-weight: 500; /* Medium weight for headings */
+}
+
+p {
+    font-weight: 400; /* Regular weight for paragraphs */
+}
+
+.navbar {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center align items */
+}
+
+.navbar li {
+    margin: 0 20px; /* Increased margin for spacing */
+}
+
+.navbar a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    position: relative; /* For pseudo-element positioning */
+}
+
+.navbar a:hover {
+    color: #ffcc00; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.navbar a::after {
+    content: ''; /* Add an underline effect */
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffcc00; /* Color of the underline */
+    transition: width 0.3s; /* Smooth width transition */
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Position below text */
+}
+
+.navbar a:hover::after {
+    width: 100%; /* Expand underline on hover */
+    left: 0; /* Align with text */
+}
+
+.container {
+    display: flex; /* Use flexbox to arrange items in a row */
+    justify-content: space-between; /* Space between items */
+    width: 80%; /* Set a width for the container */
+    max-width: 1000px; /* Max width for larger screens */
+    margin: 20px auto; /* Center the container */
+}
+
+.profile, .workout {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px; /* Margin for spacing */
+    flex: 1; /* Allow the items to grow equally */
+    min-width: 250px; /* Minimum width to avoid squishing */
+}
+
+.tracker-container {
+    display: flex; /* Use flexbox for tracker sections */
+    justify-content: space-between; /* Space between trackers */
+    width: 80%; /* Set width for the tracker container */
+    max-width: 1000px; /* Max width for larger screens */
+    margin: 20px auto; /* Center the container */
+}
+
+.calories, .speed-tracker {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px; /* Margin for spacing */
+    flex: 1; /* Allow the items to grow equally */
+    min-width: 250px; /* Minimum width to avoid squishing */
+}
+
+h2 {
+    color: #333;
+}
+
+.profile-info, .calories-info, .speed-info {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.calories-container {
+    display: flex; /* Use flexbox for calories tracker layout */
+    align-items: center; /* Center align items */
+    justify-content: space-between; /* Space between chart and info */
+}
+
+.calories-chart {
+    width: 100px; /* Chart size */
+    height: 100px;
+}
+
+.circle-chart {
+    transform: rotate(-90deg); /* Rotate the circle for better appearance */
+}
+
+.circle-chart-bg {
+    fill: none;
+    stroke: #e0e0e0; /* Background circle color */
+    stroke-width: 2.5;
+}
+
+.circle-chart-fill {
+    fill: none;
+    stroke: #76c7c0; /* Color for the filled part of the circle */
+    stroke-width: 2.5;
+    transition: stroke-dasharray 0.5s ease-in-out; /* Smooth transition */
+}
+
+.calories-progress-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: bold;
+}
+
+.calories-info {
+    margin-left: 20px; /* Space between chart and info */
+}
+/* Base styles for smaller devices */
+
+
+.container,
+.tracker-container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    width: 100%; /* Use full width */
+}
+
+.navbar ul {
+    flex-direction: column; /* Stack navbar items vertically */
+}
+
+.navbar li {
+    margin: 10px 0; /* Adjust margin for vertical stacking */
+}
+
+/* Styles for tablets */
+@media (min-width: 600px) {
+    .container,
+    .tracker-container {
+        flex-direction: row; /* Arrange items in a row for tablets */
+    }
+
+    .navbar ul {
+        flex-direction: row; /* Arrange navbar items in a row */
+    }
+
+    .navbar li {
+        margin: 0 20px; /* Maintain horizontal spacing */
+    }
+}
+
+/* Styles for larger screens */
+@media (min-width: 900px) {
+    .container,
+    .tracker-container {
+        justify-content: space-between; /* Space out items */
+        width: 80%; /* Set width for larger screens */
+    }
+
+    .profile,
+    .workout,
+    .calories,
+    .speed-tracker {
+        flex: 1; /* Allow equal flex growth */
+        min-width: 250px; /* Minimum width */
+    }
+}
+
+h2 {
+    font-size: 1.5em; /* Responsive heading size */
+}
+
+p {
+    font-size: 1em; /* Responsive paragraph size */
+}
+
+/* Make the calories chart responsive */
+.calories-chart {
+    width: 80px; /* Adjust size for smaller screens */
+    height: 80px;
+}
+
+@media (min-width: 600px) {
+    .calories-chart {
+        width: 100px; /* Increase size for larger screens */
+        height: 100px;
+    }
+}
+
+.calories-info, .speed-info, .profile-info {
+    font-size: 0.9em; /* Slightly smaller text for mobile */
+}
+
+
+/* ----------------------------------------- workout page--------------------------------------*/

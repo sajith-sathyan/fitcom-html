@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #eae8e8;
+      }
+
+      .container {
+        text-align: center;
+        width: 500px;
+        max-width: 600px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2); /* Added outer shadow */
+      }
+
+      h1 {
+        text-align: start;
+        color: #333;
+      }
+      
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .radio-group label {
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      input[type="date"],
+      input[type="text"] {
+        width: 50%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: 2px solid black; /* Added black border around each button */
+        border-radius: 8px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+      .info {
+        font-size: 0.9em;
+        color: #666;
+        margin: 10px 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <h3>
+            Please select which sex we should use to calculate your calorie
+            needs:
+          </h3>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="gender" value="male" required /> Male
+            </label>
+            <label>
+              <input type="radio" name="gender" value="female" /> Female
+            </label>
+            <label>
+              <input type="radio" name="gender" value="other" /> Other
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3 for="dob">When were you born?</h3>
+          <input type="date" id="dob" name="dob" required />
+        </div>
+        <div class="form-group">
+          <h3 for="location">Where do you live?</h3>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Your location"
+            required
+          />
+        </div>
+        <p class="info">
+          We take this data to calculate your calorie needs accurately.
+        </p>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

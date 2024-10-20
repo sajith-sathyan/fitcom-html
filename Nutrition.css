@@ -1,0 +1,91 @@
+/* General styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Container for all content */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+/* Nutrition Info Section */
+.nutrition-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 22%;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Meals Section */
+.meals {
+    margin-bottom: 20px;
+}
+
+.meal-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meal-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Tips Section */
+.tips {
+    margin-bottom: 20px;
+}
+
+.tips ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.tips li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}

@@ -1,0 +1,64 @@
+/* Workout Page Styles */
+body, html {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #edf0f3;
+  }
+  
+  .workout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+    color: rgb(0, 0, 0);
+  }
+  
+  .filter-bar {
+    margin-bottom: 2rem;
+    color: rgb(8, 9, 9);
+  }
+  
+  /* Grid for workout cards */
+  .workout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; 
+    width: 100%;
+  }
+  
+  .workout-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500Px;
+  }
+  
+  .start-workout-btn {
+    padding: 0.5rem 1rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .start-workout-btn:hover {
+    background-color: #005fa3;
+  }
+  
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+  }
+  

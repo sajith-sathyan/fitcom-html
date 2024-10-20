@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals</title>
+    <link rel="stylesheet" href="goals.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Define Your Fitness Goals</h1>
+            <p>Set your personal health and fitness goals to track your progress</p>
+        </header>
+
+        <!-- Goal Input Section -->
+        <section class="goal-input">
+            <h2>Define Your Goal</h2>
+            <label for="goal">Goal Name:</label>
+            <input type="text" id="goal" name="goal" placeholder="Enter your goal">
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date">
+
+            <label for="progress">Progress:</label>
+            <input type="range" id="progress" name="progress" min="0" max="100" value="0">
+
+            <!-- Add Goal Button inside the div -->
+            <button class="submit-btn">Add Goal</button>
+        </section>
+
+        <!-- Goal List Section -->
+        <section class="goal-list">
+            <h2>Your Goals</h2>
+            <ul>
+                <li>
+                    <h3>Goal Name: Build Muscle</h3>
+                    <p>Start Date: 2024-10-10</p>
+                    <p>Progress: 50%</p>
+                </li>
+                <li>
+                    <h3>Goal Name: Run a Marathon</h3>
+                    <p>Start Date: 2024-09-01</p>
+                    <p>Progress: 80%</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

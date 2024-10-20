@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pose Estimation - Jumping Jacks</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+    <style>
+        #output {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #video {
+            width: 640px;
+            height: 480px;
+            display: block;
+            border: 1px solid white;
+        }
+        body {
+            background-color: black;
+        }
+        #feedback {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" playsinline autoplay></video>
+    <canvas id="output"></canvas>
+    <div id="feedback"></div>
+    
+    <script>
+        const video = document.getElementById('video');
+        const output = document.getElementById('output');
+        const ctx = output.getContext('2d');
+        const feedbackDiv = document.getElementById('feedback');
+        let lastFeedback = "";
+
+        async function setupCamera() {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+            });
+            video.srcObject = stream;
+            return new Promise((resolve) => {
+                video.onloadedmetadata = () => {
+                    resolve(video);
+                };
+            });
+        }
+
+        function speakMessage(message) {
+            const synth = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(message);
+            utterance.rate = 1;
+            synth.speak(utterance);
+        }
+
+        function getMotivationalMessage() {
+            const messages = [
+                "Keep going! You're doing amazing!",
+                "Stay strong! Every jump counts!",
+                "You're unstoppable! Keep it up!",
+                "Great job! You're getting stronger!",
+                "Keep pushing! You're making progress!"
+            ];
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        function isJumpingJackCorrect(keypoints) {
+            const leftShoulder = keypoints[5];
+            const rightShoulder = keypoints[6];
+            const leftAnkle = keypoints[15];
+            const rightAnkle = keypoints[16];
+
+            // Check if keypoints have sufficient confidence
+            if (leftShoulder.score < 0.5 || rightShoulder.score < 0.5 || leftAnkle.score < 0.5 || rightAnkle.score < 0.5) {
+                return "Insufficient data to assess jumping jack.";
+            }
+
+            // Calculate shoulder and ankle distances
+            const shoulderDistance = Math.abs(leftShoulder.position.x - rightShoulder.position.x);
+            const ankleDistance = Math.abs(leftAnkle.position.x - rightAnkle.position.x);
+
+            // Check for leg spread and arm position
+            if (ankleDistance > shoulderDistance * 1.3) {
+                return "Good jumping jack! Keep it up! " + getMotivationalMessage();
+            } else if (ankleDistance < shoulderDistance * 0.7) {
+                return "Incorrect jumping jack. Try to spread your legs wider. " + getMotivationalMessage();
+            } else {
+                return "Almost there! Focus on spreading your legs more. " + getMotivationalMessage();
+            }
+        }
+
+        async function detectPose() {
+            const net = await posenet.load();
+            await setupCamera();
+            video.play();
+
+            output.width = video.width;
+            output.height = video.height;
+
+            setInterval(async () => {
+                const pose = await net.estimateSinglePose(video, {
+                    flipHorizontal: false,
+                });
+                ctx.clearRect(0, 0, output.width, output.height);
+                drawKeypoints(pose.keypoints);
+
+                const jumpingJackFeedback = isJumpingJackCorrect(pose.keypoints);
+                feedbackDiv.innerText = jumpingJackFeedback;
+
+                if (jumpingJackFeedback !== lastFeedback) {
+                    speakMessage(jumpingJackFeedback);
+                    lastFeedback = jumpingJackFeedback;
+                }
+            }, 1000);
+        }
+
+        function drawKeypoints(keypoints) {
+            keypoints.forEach(keypoint => {
+                if (keypoint.score > 0.6) {
+                    ctx.beginPath();
+                    ctx.arc(keypoint.position.x, keypoint.position.y, 5, 0, 2 * Math.PI);
+                    ctx.fillStyle = "red";
+                    ctx.fill();
+                }
+            });
+        }
+
+        detectPose();
+    </script>
+</body>
+</html>

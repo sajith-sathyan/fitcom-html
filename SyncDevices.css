@@ -1,0 +1,100 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #edf0f3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 18px;
+    color: #777;
+}
+
+/* Devices Section */
+.devices, .synced-devices {
+    margin-bottom: 30px;
+}
+
+.devices h2, .synced-devices h2 {
+    font-size: 28px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Device and Synced Card Styling */
+.device-card, .synced-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: space-between; /* Align the button to the end */
+}
+
+.device-card img {
+    margin-right: 20px;
+    width: 64px;
+    height: 64px;
+}
+
+.device-info {
+    flex-grow: 1; /* Takes up the available space */
+}
+
+/* Sync and Unsync Button Styles */
+.sync-btn, .unsync-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.unsync-btn {
+    background-color: #e74c3c;
+}
+
+.sync-btn:hover, .unsync-btn:hover {
+    opacity: 0.9;
+}
+
+/* Synced Devices Status */
+.synced-devices .status {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.synced {
+    color: #4CAF50;
+}
+
+.unsynced {
+    color: #e74c3c;
+}
